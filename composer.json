@@ -1,0 +1,49 @@
+{
+    "name": "tvdijen/simplesamlphp-module-ldapRadius",
+    "description": "A module that provides authentication against LDAP stores with additional MFA against RADIUS",
+    "type": "simplesamlphp-module",
+    "keywords": ["simplesamlphp", "ldap", "radius", "mfa"],
+    "license": "LGPL-2.1-or-later",
+    "authors": [
+        {
+            "name": "Tim van Dijen",
+            "email": "tvdijen@gmail.com"
+        }
+    ],
+    "config": {
+        "preferred-install": {
+            "simplesamlphp/simplesamlphp": "source",
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "simplesamlphp/composer-module-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleSAML\\Module\\ldapRadius\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleSAML\\Test\\Utils\\": "vendor/simplesamlphp/simplesamlphp/tests/Utils"
+        }
+    },
+    "require": {
+        "php": ">=7.4 || ^8.0",
+
+        "simplesamlphp/assert": "~0.2.13",
+        "simplesamlphp/composer-module-installer": "~1.1",
+        "simplesamlphp/simplesamlphp": "^2.0.0-beta.11",
+        "simplesamlphp/simplesamlphp-module-ldap": "^2.0.0",
+        "simplesamlphp/simplesamlphp-module-radius": "^2.0.0-rc1"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp-test-framework": "^1.2.1"
+    },
+    "support": {
+        "issues": "https://github.com/simplesamlphp/simplesamlphp-module-ldapRadius/issues",
+        "source": "https://github.com/simplesamlphp/simplesamlphp-module-ldapRadius"
+    }
+}
