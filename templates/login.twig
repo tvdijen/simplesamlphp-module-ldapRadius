@@ -1,0 +1,74 @@
+{% set pagetitle = 'Enter your username and password'|trans %}
+
+{% extends "@core/base.twig" %}
+
+{% block postload %}
+    <script src="{{ asset('js/loginuserpass.js', 'core') }}"></script>
+{% endblock %}
+
+{% block content %}
+    {%- if not isProduction %}
+
+    <div class="message-box warning">
+      {% trans %}You are now accessing a pre-production system. This authentication setup is for testing and pre-production verification only. If someone sent you a link that pointed you here, and you are not <i>a tester</i> you probably got the wrong link, and should <b>not be here</b>.{% endtrans %}
+    </div>
+    {% endif -%}
+
+    {% if errorcode -%}
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <div class="message-box error">
+
+                {% set errtitles = errorcodes['title'] %}
+                {% set errtitle = errtitles[errorcode] %}
+
+                <h3>{{ errtitle|trans(errorparams) }}</h3>
+
+                {% set errdescs = errorcodes['descr'] %}
+                {% set errdesc = errdescs[errorcode] %}
+
+                <p>{{ errdesc|trans(errorparams) }}</p>
+
+            </div>
+        </div>
+    </div>
+    {%- endif %}
+
+    <h1>{{ 'Enter your username and password'|trans }}</h1>
+
+    <p>{{ 'A service has requested you to authenticate yourself. Please enter your credentials in the form below.'|trans }}</p>
+    <br>
+    <div class="center">
+        <form class="pure-form pure-form-aligned center-form" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f">
+            <div class="form-align">
+
+                <div class="pure-control-group">
+                    <label for="username">{{ 'Username'|trans }}</label>
+                    <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} name="username" class="edge" tabindex="1" autocomplete="username" required autofocus>
+                </div>
+                <div class="pure-control-group">
+                    <label for="password">{{ 'Password'|trans }}</label>
+                    <input id="password" type="password" name="password" {%if passwordMinLength is not null -%} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required>
+                </div>
+                <div class="pure-control-group">
+                    <label for="otp">{{ 'Token'|trans }}</label>
+                    <input id="otp" type="password" name="otp" {%if otpInputMode is not null -%} inputmode="{{ otpInputMode }}"{%- endif %}{%if otpPattern is not null -%} pattern="{{ otpPattern }}"{%- endif %} class="edge" tabindex="3" autocomplete="one-time-code" required>
+                </div>
+
+            </div> <!-- form-align-->
+            <br><br>
+
+            <button class="pure-button pure-button-red pure-input-1-2 pure-input-sm-1-1 right" id="submit_button"
+                    type="submit" tabindex="4" data-processing="{% trans %}Processing...{% endtrans %}">
+              {% trans %}Login{% endtrans %}
+            </button>
+
+        </form>
+    </div><!--center-->
+    <br><br>
+    <div class="pure-form-message">
+        <strong>{{ 'Help! I don\'t remember my password.'|trans }}</strong>
+        <p>{{ 'Without your username and password you cannot authenticate yourself for access to the service. There may be someone that can help you. Consult the help desk at your organization!'|trans }}</p>
+    </div>
+
+{% endblock %}

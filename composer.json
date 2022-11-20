@@ -1,5 +1,5 @@
 {
-    "name": "tvdijen/simplesamlphp-module-ldapRadius",
+    "name": "tvdijen/simplesamlphp-module-ldapradius",
     "description": "A module that provides authentication against LDAP stores with additional MFA against RADIUS",
     "type": "simplesamlphp-module",
     "keywords": ["simplesamlphp", "ldap", "radius", "mfa"],
