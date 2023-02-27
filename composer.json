@@ -20,6 +20,9 @@
             "simplesamlphp/composer-module-installer": true
         }
     },
+    "extra": {
+        "ssp-mixedcase-module-name": "ldapRadius"
+    },
     "autoload": {
         "psr-4": {
             "SimpleSAML\\Module\\ldapRadius\\": "src/"
