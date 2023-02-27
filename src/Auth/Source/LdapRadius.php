@@ -168,8 +168,6 @@ final class LdapRadius extends Auth\Source
 
     public function login(string $username, string $password, string $otp): array
     {
-        $primarySource = Auth\Source::getById($this->primarySource);
-
         $authsources = Configuration::getConfig('authsources.php')->toArray();
         $ldap = new class (['AuthId' => $this->primarySource], $authsources[$this->primarySource]) extends Ldap
         {
