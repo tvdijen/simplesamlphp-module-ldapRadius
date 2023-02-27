@@ -105,7 +105,6 @@ class Login
                     'code' => $errorCode,
                     'params' => $errorParams
                 ];
-                $authStateId = $this->authState::saveState($state, $source::STAGEID);
             }
 
             if (isset($state['error'])) {
