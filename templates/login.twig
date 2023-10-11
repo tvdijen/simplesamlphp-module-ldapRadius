@@ -39,7 +39,7 @@
     <p>{{ 'A service has requested you to authenticate yourself. Please enter your credentials in the form below.'|trans }}</p>
     <br>
     <div class="center">
-        <form class="pure-form pure-form-aligned center-form" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f">
+        <form class="pure-form pure-form-aligned center-form" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f" spellcheck="false">
             <div class="form-align">
 
                 <div class="pure-control-group">
