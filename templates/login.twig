@@ -37,32 +37,28 @@
     <h1>{{ 'Enter your username and password'|trans }}</h1>
 
     <p>{{ 'A service has requested you to authenticate yourself. Please enter your credentials in the form below.'|trans }}</p>
-    <br>
-    <div class="center">
-        <form class="pure-form pure-form-aligned center-form" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f" spellcheck="false">
-            <div class="form-align">
+    <div class="center-form login-form-start">
+        <form class="pure-form pure-form-aligned" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f" spellcheck="false">
+            <div class="pure-control-group">
+                <label for="username">{{ 'Username'|trans }}</label>
+                <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} name="username" class="edge" tabindex="1" autocomplete="username" required autofocus>
+            </div>
+            <div class="pure-control-group">
+                <label for="password">{{ 'Password'|trans }}</label>
+                <input id="password" type="password" name="password" {%if passwordMinLength is not null -%} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required>
+            </div>
+            <div class="pure-control-group">
+                <label for="otp">{{ 'Token'|trans }}</label>
+                <input id="otp" type="password" name="otp" {%if otpInputMode is not null -%} inputmode="{{ otpInputMode }}"{%- endif %}{%if otpPattern is not null -%} pattern="{{ otpPattern }}"{%- endif %} class="edge" tabindex="3" autocomplete="one-time-code" required>
+            </div>
 
-                <div class="pure-control-group">
-                    <label for="username">{{ 'Username'|trans }}</label>
-                    <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} name="username" class="edge" tabindex="1" autocomplete="username" required autofocus>
-                </div>
-                <div class="pure-control-group">
-                    <label for="password">{{ 'Password'|trans }}</label>
-                    <input id="password" type="password" name="password" {%if passwordMinLength is not null -%} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required>
-                </div>
-                <div class="pure-control-group">
-                    <label for="otp">{{ 'Token'|trans }}</label>
-                    <input id="otp" type="password" name="otp" {%if otpInputMode is not null -%} inputmode="{{ otpInputMode }}"{%- endif %}{%if otpPattern is not null -%} pattern="{{ otpPattern }}"{%- endif %} class="edge" tabindex="3" autocomplete="one-time-code" required>
-                </div>
 
-            </div> <!-- form-align-->
-            <br><br>
-
-            <button class="pure-button pure-button-red pure-input-1-2 pure-input-sm-1-1 right" id="submit_button"
+            <div class="pure-control-group center login-form-submit">
+                <button class="pure-button pure-button-red pure-input-1-2 pure-input-sm-1-1 right" id="submit_button"
                     type="submit" tabindex="4" data-default="{% trans %}Login{% endtrans %}" data-processing="{% trans %}Processing...{% endtrans %}">
-              {% trans %}Login{% endtrans %}
-            </button>
-
+                  {% trans %}Login{% endtrans %}
+                </button>
+            </div>
         </form>
     </div><!--center-->
     <br><br>
