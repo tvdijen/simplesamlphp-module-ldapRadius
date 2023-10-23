@@ -1,3 +1,4 @@
 ldapRadius-login:
     path:       /login
     defaults:   { _controller: 'SimpleSAML\Module\ldapRadius\Controller\Login::login' }
+    methods:    [GET, POST]
