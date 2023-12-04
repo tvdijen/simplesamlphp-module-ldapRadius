@@ -1,0 +1,6 @@
+{
+  "symbol-whitelist": [
+    "SimpleSAML\\Module\\ldap\\Auth\\Source\\Ldap",
+    "SimpleSAML\\Module\\radius\\Auth\\Source\\Radius"
+  ]
+}

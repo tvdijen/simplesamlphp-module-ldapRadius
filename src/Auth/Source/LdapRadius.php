@@ -179,7 +179,7 @@ final class LdapRadius extends Auth\Source
 
         $ldapAttributes = $ldap->loginOverload($username, $password);
 
-        $radius = new class(['AuthId' => $this->secondarySource], $authsources[$this->secondarySource]) extends Radius
+        $radius = new class (['AuthId' => $this->secondarySource], $authsources[$this->secondarySource]) extends Radius
         {
             public function loginOverload(string $username, string $otp): array
             {

@@ -86,7 +86,8 @@ class Login
             $errorParams = $state['error']['params'];
         }
 
-        if ($request->server->get('REQUEST_METHOD') === 'POST' &&
+        if (
+            $request->server->get('REQUEST_METHOD') === 'POST' &&
             $request->request->has('username') &&
             $request->request->has('password') &&
             $request->request->has('otp')
