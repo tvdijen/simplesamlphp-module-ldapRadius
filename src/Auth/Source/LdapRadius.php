@@ -8,16 +8,13 @@ use Exception;
 use SimpleSAML\Assert\Assert;
 use SimpleSAML\Auth;
 use SimpleSAML\Configuration;
-use SimpleSAML\Error;
 use SimpleSAML\Logger;
 use SimpleSAML\Module;
 use SimpleSAML\Module\ldap\Auth\Source\Ldap;
 use SimpleSAML\Module\radius\Auth\Source\Radius;
 use SimpleSAML\Utils;
 
-use function array_keys;
 use function array_merge;
-use function in_array;
 use function sprintf;
 
 /**
