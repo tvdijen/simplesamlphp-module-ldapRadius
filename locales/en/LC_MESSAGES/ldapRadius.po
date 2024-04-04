@@ -1,0 +1,6 @@
+msgid ""
+msgstr ""
+"X-Domain: ldapRadius\n"
+
+msgid "Token"
+msgstr ""

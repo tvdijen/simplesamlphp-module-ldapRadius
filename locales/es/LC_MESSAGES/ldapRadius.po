@@ -1,0 +1,15 @@
+msgid ""
+msgstr ""
+"X-Domain: ldapRadius\n"
+
+msgid "Token"
+msgstr "Código de un solo uso"
+
+msgid "Enter your username and password"
+msgstr "Introduzca su correo electrónico y contraseña"
+
+msgid "A service has requested you to authenticate yourself. Please enter your credentials in the form below."
+msgstr "Un servicio ha solicitado que se identifique. Por favor, introduzca sus credenciales en el formulario a continuación"
+
+msgid "Without your username and password you cannot authenticate yourself for access to the service. There may be someone that can help you. Consult the help desk at your organization!"
+msgstr "Sin su correo electrónico y contraseña no puede identificarse para acceder al servicio. Quizás alguien pueda ayudarle. Consulte al soporte técnico de su organización."
