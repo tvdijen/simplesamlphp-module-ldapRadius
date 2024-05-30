@@ -135,8 +135,14 @@ final class LdapRadius extends Auth\Source
      * @param string $password  The password the user wrote.
      * @param string $otp  The otp the user wrote.
      */
-    public static function handleLogin(array $state, string $username, string $password, string $otp): void
-    {
+    public static function handleLogin(
+        array $state,
+        string $username,
+        #[\SensitiveParameter]
+        string $password,
+        #[\SensitiveParameter]
+        string $otp,
+    ): void {
         // Retrieve the authentication source we are executing.
         Assert::keyExists($state, self::AUTHID);
 
@@ -163,13 +169,21 @@ final class LdapRadius extends Auth\Source
     }
 
 
-    public function login(string $username, string $password, string $otp): array
-    {
+    public function login(
+        string $username,
+        #[\SensitiveParameter]
+        string $password,
+        #[\SensitiveParameter]
+        string $otp,
+    ): array {
         $authsources = Configuration::getConfig('authsources.php')->toArray();
         $ldap = new class (['AuthId' => $this->primarySource], $authsources[$this->primarySource]) extends Ldap
         {
-            public function loginOverload(string $username, string $password): array
-            {
+            public function loginOverload(
+                string $username,
+                #[\SensitiveParameter]
+                string $password
+            ): array {
                 return $this->login($username, $password);
             }
         };
@@ -178,8 +192,11 @@ final class LdapRadius extends Auth\Source
 
         $radius = new class (['AuthId' => $this->secondarySource], $authsources[$this->secondarySource]) extends Radius
         {
-            public function loginOverload(string $username, string $otp): array
-            {
+            public function loginOverload(
+                string $username,
+                #[\SensitiveParameter]
+                string $otp,
+            ): array {
                 return $this->login($username, $otp);
             }
         };
