@@ -102,7 +102,7 @@ class Login
                 $errorParams = $e->getParameters();
                 $state['error'] = [
                     'code' => $errorCode,
-                    'params' => $errorParams,
+                    'params' => $errorParams
                 ];
             }
 
@@ -118,7 +118,7 @@ class Login
         $t->data['errorcode'] = $errorCode;
         $t->data['errorcodes'] = Error\ErrorCodes::getAllErrorCodeMessages();
         $t->data['errorparams'] = $errorParams;
-
+        $t->data['forcedUsername'] = $state['forcedUsername'];
         $t->data['usernameTypeHint'] = $state['ldapRadius:usernameTypeHint'];
         $t->data['usernamePattern'] = $state['ldapRadius:usernamePattern'];
         $t->data['passwordMinLength'] = $state['ldapRadius:passwordMinLength'];

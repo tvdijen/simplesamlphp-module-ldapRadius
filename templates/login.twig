@@ -41,7 +41,10 @@
         <form class="pure-form pure-form-aligned" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f" spellcheck="false">
             <div class="pure-control-group">
                 <label for="username">{{ 'Username'|trans }}</label>
-                <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} name="username" class="edge" tabindex="1" autocomplete="username" required autofocus>
+                <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} {{ forcedUsername ? 'disabled' }} placeholder="{{ forcedUsername }}" name="username" class="edge" required
+            {%- if not forcedUsername %} tabindex="1" value="{{ forcedUsername }}" autocomplete="username" {% endif %}
+            {%- if not forcedUsername and not username %} autofocus {% endif %} >
+
             </div>
             <div class="pure-control-group">
                 <label for="password">{{ 'Password'|trans }}</label>
