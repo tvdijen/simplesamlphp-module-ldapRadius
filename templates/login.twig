@@ -41,14 +41,15 @@
         <form class="pure-form pure-form-aligned" action="{{ moduleURL('ldapRadius/login', {'AuthState': AuthState}) }}" method="post" id="f" spellcheck="false">
             <div class="pure-control-group">
                 <label for="username">{{ 'Username'|trans }}</label>
-                <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} {{ forcedUsername ? 'disabled' }} placeholder="{{ forcedUsername }}" name="username" class="edge" required
-            {%- if not forcedUsername %} tabindex="1" value="{{ forcedUsername }}" autocomplete="username" {% endif %}
-            {%- if not forcedUsername and not username %} autofocus {% endif %} >
+                <input id="username" type="{{ usernameTypeHint }}" {%if usernamePattern is not null -%} pattern="{{ usernamePattern }}"{%- endif %} {{ forceUsername ? 'disabled' }} placeholder="{{ forceUsername }}" name="username" class="edge" required
+            {%- if not forceUsername %} tabindex="1" value="{{ username }}" autocomplete="username" {% endif %}
+            {%- if not forceUsername and not username %} autofocus {% endif %} >
 
             </div>
             <div class="pure-control-group">
                 <label for="password">{{ 'Password'|trans }}</label>
-                <input id="password" type="password" name="password" {%if passwordMinLength is not null -%} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required>
+                <input id="password" type="password" name="password" {%if passwordMinLength is not null -%} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required
+            {%- if username %} autofocus {% endif %} >
             </div>
             <div class="pure-control-group">
                 <label for="otp">{{ 'Token'|trans }}</label>
