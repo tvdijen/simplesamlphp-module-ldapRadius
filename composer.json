@@ -43,7 +43,7 @@
         "simplesamlphp/simplesamlphp": "^2.1",
         "simplesamlphp/simplesamlphp-module-ldap": "^2.3",
         "simplesamlphp/simplesamlphp-module-radius": "^2.0",
-        "symfony/http-foundation": "^6.4"
+        "symfony/http-foundation": "^7.1"
     },
     "require-dev": {
         "simplesamlphp/simplesamlphp-test-framework": "^1.5"
