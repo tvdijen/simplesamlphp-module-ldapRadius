@@ -182,7 +182,7 @@ final class LdapRadius extends Auth\Source
             public function loginOverload(
                 string $username,
                 #[\SensitiveParameter]
-                string $password
+                string $password,
             ): array {
                 return $this->login($username, $password);
             }

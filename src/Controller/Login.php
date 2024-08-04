@@ -41,7 +41,7 @@ class Login
      * @throws \Exception
      */
     public function __construct(
-        Configuration $config
+        Configuration $config,
     ) {
         $this->config = $config;
     }
@@ -102,7 +102,7 @@ class Login
                 $errorParams = $e->getParameters();
                 $state['error'] = [
                     'code' => $errorCode,
-                    'params' => $errorParams
+                    'params' => $errorParams,
                 ];
             }
 
