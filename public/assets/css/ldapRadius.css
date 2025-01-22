@@ -1,6 +1,25 @@
 /* Mask the input as password */
+
 .mask {
-    -webkit-text-security: disc;
-    -moz-webkit-text-security: disc;
-    -moz-text-security: disc;
+  font-family: text-security-disc;
+  /* Use -webkit-text-security if the browser supports it */
+  -webkit-text-security: disc;
+}
+
+#otp {
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#username {
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#password {
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
 }

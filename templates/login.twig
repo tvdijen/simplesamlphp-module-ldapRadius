@@ -3,6 +3,7 @@
 {% extends "@core/base.twig" %}
 
 {% block preload %}
+    <link rel="stylesheet" href="{{ asset('css/text-security.css', 'ldapRadius') }}">
     <link rel="stylesheet" href="{{ asset('css/ldapRadius.css', 'ldapRadius') }}">
 {% endblock %}
 
@@ -52,7 +53,7 @@
             </div>
             <div class="pure-control-group">
                 <label for="password">{{ 'Password'|trans }}</label>
-                <input id="password" type="password" name="password" {%if passwordMinLength is not null %} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required
+                <input id="password" type="password" class="mask" name="password" {%if passwordMinLength is not null %} minLength="{{ passwordMinLength }}"{%- endif %} class="edge" tabindex="2" autocomplete="current-password" required
             {%- if username %} autofocus {% endif %} >
             </div>
             <div class="pure-control-group">
