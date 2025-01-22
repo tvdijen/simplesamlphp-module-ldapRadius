@@ -2,6 +2,10 @@
 
 {% extends "@core/base.twig" %}
 
+{% block preload %}
+    <link rel="stylesheet" href="{{ asset('css/ldapRadius.css', 'ldapRadius') }}">
+{% endblock %}
+
 {% block postload %}
     <script src="{{ asset('js/loginuserpass.js', 'core') }}"></script>
 {% endblock %}
@@ -53,7 +57,7 @@
             </div>
             <div class="pure-control-group">
                 <label for="otp">{{ 'Token'|trans }}</label>
-                <input id="otp" type="password" name="otp" {%if otpInputMode is not null %} inputmode="{{ otpInputMode }}"{%- endif %}{%if otpPattern is not null %} pattern="{{ otpPattern }}"{%- endif %} class="edge" tabindex="3" autocomplete="one-time-code" required>
+                <input id="otp" type="text" class="mask" name="otp" {%if otpInputMode is not null %} inputmode="{{ otpInputMode }}"{%- endif %}{%if otpPattern is not null %} pattern="{{ otpPattern }}"{%- endif %} class="edge" tabindex="3" autocomplete="one-time-code" required>
             </div>
 
 

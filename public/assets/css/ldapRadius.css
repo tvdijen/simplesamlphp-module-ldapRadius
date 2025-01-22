@@ -1,0 +1,6 @@
+/* Mask the input as password */
+.mask {
+    -webkit-text-security: disc;
+    -moz-webkit-text-security: disc;
+    -moz-text-security: disc;
+}
