@@ -176,6 +176,7 @@ final class LdapRadius extends Auth\Source
         #[\SensitiveParameter]
         string $otp,
     ): array {
+        Logger::info('ldapRadius: Attempting LDAP-authentication.');
         $authsources = Configuration::getConfig('authsources.php')->toArray();
         $ldap = new class (['AuthId' => $this->primarySource], $authsources[$this->primarySource]) extends Ldap
         {
@@ -189,6 +190,7 @@ final class LdapRadius extends Auth\Source
         };
 
         $ldapAttributes = $ldap->loginOverload($username, $password);
+        Logger::info('ldapRadius: LDAP-authentication succeeded; continuing to Radius-authentication.');
 
         $radius = new class (['AuthId' => $this->secondarySource], $authsources[$this->secondarySource]) extends Radius
         {
