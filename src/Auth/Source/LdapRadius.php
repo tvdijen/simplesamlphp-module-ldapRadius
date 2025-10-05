@@ -62,8 +62,8 @@ final class LdapRadius extends Auth\Source
     /**
      * Constructor for this authentication source.
      *
-     * @param array $info  Information about this authentication source.
-     * @param array &$config  Configuration for this authentication source.
+     * @param array<mixed> $info  Information about this authentication source.
+     * @param array<mixed> &$config  Configuration for this authentication source.
      */
     public function __construct(array $info, array &$config)
     {
@@ -104,7 +104,7 @@ final class LdapRadius extends Auth\Source
      * save the state, and at a later stage, load the state, update it with the authentication
      * information about the user, and call completeAuth with the state array.
      *
-     * @param array &$state Information about the current authentication.
+     * @param array<mixed> &$state Information about the current authentication.
      */
     public function authenticate(array &$state): void
     {
@@ -136,7 +136,7 @@ final class LdapRadius extends Auth\Source
      * enters a username, password and otp. On success, it will not return. On wrong
      * username/password failure, otp failure and other errors, it will throw an exception.
      *
-     * @param string $authStateId  The identifier of the authentication state.
+     * @param array<mixed> $state The state
      * @param string $username  The username the user wrote.
      * @param string $password  The password the user wrote.
      * @param string $otp  The otp the user wrote.
@@ -152,7 +152,7 @@ final class LdapRadius extends Auth\Source
         // Retrieve the authentication source we are executing.
         Assert::keyExists($state, self::AUTHID);
 
-        //** @var \SimpleSAML\Auth\Source|null $source
+        /** @var \SimpleSAML\Auth\Source|null $source */
         $source = Auth\Source::getById($state[self::AUTHID]);
         if ($source === null) {
             throw new Exception(sprintf("Could not find authentication source with id '%s'", $state[self::AUTHID]));
