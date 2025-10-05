@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method SimpleSAML\\Module\\ldap\\Auth\\Source\\Ldap@anonymous/Auth/Source/LdapRadius\.php\:187\:\:login\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Auth/Source/LdapRadius.php
+
+		-
+			message: '#^Call to an undefined method SimpleSAML\\Module\\radius\\Auth\\Source\\Radius@anonymous/Auth/Source/LdapRadius\.php\:201\:\:login\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Auth/Source/LdapRadius.php
+
+		-
+			message: '#^Class SimpleSAML\\Module\\ldap\\Auth\\Source\\Ldap@anonymous/Auth/Source/LdapRadius\.php\:187 does not have a constructor and must be instantiated without any parameters\.$#'
+			identifier: new.noConstructor
+			count: 1
+			path: src/Auth/Source/LdapRadius.php
+
+		-
+			message: '#^Class SimpleSAML\\Module\\radius\\Auth\\Source\\Radius@anonymous/Auth/Source/LdapRadius\.php\:201 does not have a constructor and must be instantiated without any parameters\.$#'
+			identifier: new.noConstructor
+			count: 1
+			path: src/Auth/Source/LdapRadius.php
