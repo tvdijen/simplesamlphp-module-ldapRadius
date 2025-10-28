@@ -34,6 +34,7 @@ final class LdapRadius extends Auth\Source
      */
     public const AUTHID = '\SimpleSAML\Module\ldapRadius\Auth\Source\LdapRadius.AuthId';
 
+
     /**
      * The primary authentication source to authenticate with.
      */
@@ -48,10 +49,15 @@ final class LdapRadius extends Auth\Source
      * The input type for the username-field. Can be 'text' or 'email'.
      */
     private string $usernameTypeHint = 'text';
+
     private ?string $usernamePattern;
+
     private ?int $passwordMinLength;
+
     private ?string $otpInputMode;
+
     private ?string $otpPattern;
+
 
     /**
      * Constructor for this authentication source.
