@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method SimpleSAML\\Auth\\Source\:\:login\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Auth/Source/LdapRadius.php
+
+		-
+			message: '#^Call to an undefined method SimpleSAML\\Auth\\Source\:\:handleLogin\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Controller/Login.php
