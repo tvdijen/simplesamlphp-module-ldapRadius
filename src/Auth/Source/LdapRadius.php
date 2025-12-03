@@ -186,19 +186,6 @@ final class LdapRadius extends Auth\Source
     ): array {
         Logger::info('ldapRadius: Attempting LDAP-authentication.');
         $authsources = Configuration::getConfig('authsources.php')->toArray();
-        $ldap = new class (['AuthId' => $this->primarySource], $authsources[$this->primarySource]) extends Ldap
-        {
-            public function loginOverload(
-                string $username,
-                #[\SensitiveParameter]
-                string $password,
-            ): array {
-                return $this->login($username, $password);
-            }
-        };
-
-        $ldapAttributes = $ldap->loginOverload($username, $password);
-        Logger::info('ldapRadius: LDAP-authentication succeeded; continuing to Radius-authentication.');
 
         $radius = new class (['AuthId' => $this->secondarySource], $authsources[$this->secondarySource]) extends Radius
         {
@@ -210,8 +197,21 @@ final class LdapRadius extends Auth\Source
                 return $this->login($username, $otp);
             }
         };
-
         $radiusAttributes = $radius->loginOverload($username, $otp);
+        Logger::info('ldapRadius: RADIUS-authentication succeeded; continuing to LDAP-authentication.');
+
+        $ldap = new class (['AuthId' => $this->primarySource], $authsources[$this->primarySource]) extends Ldap
+        {
+            public function loginOverload(
+                string $username,
+                #[\SensitiveParameter]
+                string $password,
+            ): array {
+                return $this->login($username, $password);
+            }
+        };
+        $ldapAttributes = $ldap->loginOverload($username, $password);
+
         return array_merge($ldapAttributes, $radiusAttributes);
     }
 }
