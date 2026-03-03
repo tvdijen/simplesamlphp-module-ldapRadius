@@ -54,7 +54,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           extensions: ctype, date, dom, fileinfo, filter, hash, intl, ldap, \
-            mbstring, openssl, pcre, posix, spl, xml
+            mbstring, openssl, pcre, posix, sodium, spl, xml
           tools: composer
           ini-values: error_reporting=E_ALL
           coverage: pcov
@@ -117,7 +117,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           extensions: ctype, date, dom, fileinfo, filter, hash, intl, ldap, \
-            mbstring, openssl, pcre, posix, spl, xml, zip
+            mbstring, openssl, pcre, posix, sodium, spl, xml, zip
           tools: composer
           ini-values: error_reporting=E_ALL
           coverage: none
@@ -165,7 +165,7 @@ jobs:
           php-version: '8.5'
           tools: composer, composer-require-checker, composer-unused
           extensions: ctype, date, dom, fileinfo, filter, hash, intl, ldap, \
-            mbstring, openssl, pcre, posix, spl, xml
+            mbstring, openssl, pcre, posix, sodium, spl, xml
 
       - name: Setup problem matchers for PHP
         run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
@@ -216,7 +216,7 @@ jobs:
           # Should be the lowest supported version
           php-version: '8.3'
           extensions: ctype, date, dom, fileinfo, filter, hash, intl, ldap, \
-            mbstring, openssl, pcre, posix, spl, xml
+            mbstring, openssl, pcre, posix, sodium, spl, xml
           tools: composer
           coverage: none
 
