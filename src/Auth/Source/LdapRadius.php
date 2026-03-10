@@ -27,12 +27,12 @@ final class LdapRadius extends Auth\Source
     /**
      * The string used to identify our states.
      */
-    public const STAGEID = '\SimpleSAML\Module\ldapRadius\Auth\Source\LdapRadius.state';
+    public const string STAGEID = '\SimpleSAML\Module\ldapRadius\Auth\Source\LdapRadius.state';
 
     /**
      * The key of the AuthId field in the state.
      */
-    public const AUTHID = '\SimpleSAML\Module\ldapRadius\Auth\Source\LdapRadius.AuthId';
+    public const string AUTHID = '\SimpleSAML\Module\ldapRadius\Auth\Source\LdapRadius.AuthId';
 
 
     /**
