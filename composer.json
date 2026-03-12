@@ -49,6 +49,7 @@
     },
     "require-dev": {
         "simplesamlphp/simplesamlphp-test-framework": "^1.11",
+        "paragonie/sodium_compat_ext_sodium": "^1.0",
         "phpseclib/bcmath_compat": "^2.0"
     },
     "support": {
