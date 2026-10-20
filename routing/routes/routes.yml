@@ -5,4 +5,4 @@ ldapRadius-login:
   defaults: {
     _controller: 'SimpleSAML\Module\ldapRadius\Controller\Login::login'
   }
-  m0ethods: [GET, POST]
+  methods: [GET, POST]
