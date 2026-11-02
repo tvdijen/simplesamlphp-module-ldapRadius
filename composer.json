@@ -48,7 +48,7 @@
         "symfony/http-foundation": "^7.4"
     },
     "require-dev": {
-        "simplesamlphp/simplesamlphp-test-framework": "^1.11",
+        "simplesamlphp/simplesamlphp-test-framework": "^2.0",
         "paragonie/sodium_compat_ext_sodium": "^1.0",
         "phpseclib/bcmath_compat": "^2.0"
     },
